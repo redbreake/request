@@ -1,0 +1,41 @@
+<!-- demoapp/templates/demoapp/home.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo GET/POST</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .message { padding: 10px; margin-bottom: 15px; border-radius: 5px; }
+        .success { background-color: #e6ffe6; border: 1px solid #99ff99; }
+        .info { background-color: #e6f7ff; border: 1px solid #99d6ff; }
+        form { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="text"] { padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Página de Demostración GET y POST</h1>
+
+    <p class="info">Método de solicitud actual: <strong>{{ method }}</strong></p>
+
+    {% if message %}
+        <div class="message success">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'demoapp:home_get_post' %}">
+        {% csrf_token %}  <!-- Importante para la seguridad en POST -->
+        <label for="name_field">Ingresa tu nombre:</label>
+        <input type="text" id="name_field" name="name_field" placeholder="Ej: Ana">
+        <button type="submit">Enviar (POST)</button>
+    </form>
+
+    <p>Si visitas esta página directamente o recargas (sin enviar el formulario), es una solicitud GET.</p>
+    <p><a href="{% url 'demoapp:landing_page' %}">Volver a Landing Page</a></p>
+</body>
+</html>
