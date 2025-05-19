@@ -30,10 +30,10 @@ La aplicación proporciona puntos finales (endpoints) para mostrar:
 
 1.  **Clona el repositorio (si lo subes a GitHub y alguien más lo usa):**
     ```bash
-    git clone https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git
+    git clone https://github.com/redbreake/request.git
     cd myproject
     ```
-    (Reemplaza `TU_USUARIO` y `NOMBRE_DEL_REPOSITORIO` con los tuyos si es para otros).
+    
 
 2.  **Crea y activa un entorno virtual (recomendado):**
     ```bash
